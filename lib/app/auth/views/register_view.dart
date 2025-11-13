@@ -34,7 +34,7 @@ class _RegisterViewContent extends StatelessWidget {
     );
 
     if (result != null && context.mounted) {
-      context.go('/home');
+      context.go('/login');
     } else if (context.mounted && viewModel.errorMessage != null) {
       ScaffoldMessenger.of(
         context,

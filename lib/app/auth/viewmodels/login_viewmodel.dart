@@ -57,7 +57,7 @@ class LoginViewModel extends ChangeNotifier {
 
     try {
       await _authRepository.login(
-        usernameController.text.toLowerCase(),
+        usernameController.text.toLowerCase().trim(),
         passwordController.text,
       );
 

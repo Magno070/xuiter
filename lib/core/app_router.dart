@@ -1,7 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:xuiter/app/auth/views/login_view.dart';
 import 'package:xuiter/app/auth/views/register_view.dart';
-import 'package:xuiter/app/home_view.dart';
+import 'package:xuiter/app/feed/feed_view.dart';
+import 'package:xuiter/app/profile/profile_view.dart';
 import 'package:xuiter/app/splash_view.dart';
 import 'package:xuiter/core/services/auth_service.dart';
 
@@ -52,7 +53,12 @@ class AppRouter {
       GoRoute(
         path: '/home',
         name: 'home',
-        builder: (context, state) => const HomeView(),
+        builder: (context, state) => const FeedView(),
+      ),
+      GoRoute(
+        path: '/profile',
+        name: 'profile',
+        builder: (context, state) => const ProfileView(),
       ),
     ],
   );

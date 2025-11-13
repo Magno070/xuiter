@@ -70,7 +70,11 @@ class RegisterViewModel extends ChangeNotifier {
 
     try {
       final ageInt = int.parse(age);
-      await _authRepository.register(username.toLowerCase(), password, ageInt);
+      await _authRepository.register(
+        username.toLowerCase().trim(),
+        password,
+        ageInt,
+      );
 
       _isLoading = false;
       notifyListeners();
