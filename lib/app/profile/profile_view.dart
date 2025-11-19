@@ -7,16 +7,22 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade900,
       appBar: AppBar(
-        title: const Text('Profile View'),
-        actions: [
-          IconButton(
-            onPressed: () {
-              context.go('/home');
-            },
-            icon: const Icon(Icons.home),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          color: const Color.fromARGB(255, 190, 190, 190),
+          onPressed: () => context.pop(),
+        ),
+        toolbarHeight: MediaQuery.of(context).size.height * 0.08,
+        backgroundColor: const Color.fromARGB(255, 50, 50, 50),
+        title: const Text(
+          'Perfil',
+          style: TextStyle(
+            color: Color.fromARGB(255, 190, 190, 190),
+            fontSize: 18,
           ),
-        ],
+        ),
       ),
     );
   }

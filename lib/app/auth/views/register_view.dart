@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:xuiter/core/app_routes.dart';
 import 'package:xuiter/app/auth/datasources/auth_data_source_impl.dart';
 import 'package:xuiter/app/auth/repositories/auth_repository_impl.dart';
 import 'package:xuiter/app/auth/viewmodels/register_viewmodel.dart';
@@ -34,7 +34,7 @@ class _RegisterViewContent extends StatelessWidget {
     );
 
     if (result != null && context.mounted) {
-      context.go('/login');
+      AppRoutes.goToLogin(context);
     } else if (context.mounted && viewModel.errorMessage != null) {
       ScaffoldMessenger.of(
         context,
@@ -103,7 +103,7 @@ class _RegisterViewContent extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               TextButton(
-                onPressed: () => context.go('/login'),
+                onPressed: () => AppRoutes.goToLogin(context),
                 child: const Text('Já tenho uma conta'),
               ),
             ],

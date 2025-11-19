@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:xuiter/core/app_routes.dart';
 import 'package:xuiter/core/services/auth_service.dart';
 
 class SplashView extends StatefulWidget {
@@ -32,9 +32,9 @@ class _SplashViewState extends State<SplashView> {
 
       // navigation logic
       if (isAuthenticated) {
-        context.go('/home');
+        AppRoutes.goToApp(context);
       } else {
-        context.go('/login');
+        AppRoutes.goToLogin(context);
       }
     } catch (e) {
       if (!mounted) return;

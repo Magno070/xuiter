@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:xuiter/core/app_routes.dart';
 import 'package:xuiter/app/auth/datasources/auth_data_source_impl.dart';
 import 'package:xuiter/app/auth/repositories/auth_repository_impl.dart';
 import 'package:xuiter/app/auth/viewmodels/login_viewmodel.dart';
@@ -27,7 +27,7 @@ class _LoginViewContent extends StatelessWidget {
     final success = await viewModel.login();
 
     if (success && context.mounted) {
-      context.go('/home');
+      AppRoutes.goToApp(context);
     } else if (context.mounted && viewModel.errorMessage != null) {
       ScaffoldMessenger.of(
         context,
@@ -86,7 +86,7 @@ class _LoginViewContent extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               TextButton(
-                onPressed: () => context.push('/register'),
+                onPressed: () => AppRoutes.pushRegister(context),
                 child: const Text('Criar conta'),
               ),
             ],

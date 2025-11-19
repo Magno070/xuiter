@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:xuiter/core/app_routes.dart';
 
 import 'package:xuiter/app/auth/datasources/auth_data_source_impl.dart';
 import 'package:xuiter/app/auth/repositories/auth_repository_impl.dart';
@@ -34,7 +34,7 @@ class _View extends StatelessWidget {
         icon: Icons.person,
         onTap: () {
           if (context.mounted) {
-            context.go('/profile');
+            AppRoutes.goToProfile(context);
           }
         },
       ),
@@ -47,7 +47,7 @@ class _View extends StatelessWidget {
         onTap: () {
           if (context.mounted) {
             viewModel.logOut().then((_) {
-              if (context.mounted) context.go('/login');
+              if (context.mounted) AppRoutes.goToLogin(context);
             });
           }
         },
@@ -69,11 +69,15 @@ class _View extends StatelessWidget {
                 child: Stack(
                   children: [
                     SizedBox.expand(
-                      child: Image.asset(
-                        'images/banner_placeholder.webp',
-                        fit: BoxFit.fill,
-                        width: double.infinity,
-                        height: double.infinity,
+                      child: Placeholder(
+                        color: Colors.grey.shade700,
+                        child: Center(
+                          child: Text(
+                            "Banner",
+                            style: TextStyle(color: Colors.white),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
                       ),
                     ),
                     Positioned(
